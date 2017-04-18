@@ -1,0 +1,2358 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/emirotin/mongodb-migrations"
+
+    >mongodb-migrations (v0.8.5)</a>
+</h1>
+<h4>A migration framework for MongoDB</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations">module mongodb-migrations</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator
+            <span class="apidocSignatureSpan">(dbConfig, logFn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._coll">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype._coll
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._loadMigrationFiles">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype._loadMigrationFiles
+            <span class="apidocSignatureSpan">(dir, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._run">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype._run
+            <span class="apidocSignatureSpan">(direction, done, progress)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._runWhenReady">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype._runWhenReady
+            <span class="apidocSignatureSpan">(direction, cb, progress)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.add">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.add
+            <span class="apidocSignatureSpan">(m)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.bulkAdd">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.bulkAdd
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.create">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.create
+            <span class="apidocSignatureSpan">(dir, id, done, coffeeScript)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.dispose">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.dispose
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.migrate">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.migrate
+            <span class="apidocSignatureSpan">(done, progress)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.rollback">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.rollback
+            <span class="apidocSignatureSpan">(done, progress)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.runFromDir">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.runFromDir
+            <span class="apidocSignatureSpan">(dir, done, progress)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.migration_stub">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>migration_stub
+            <span class="apidocSignatureSpan">(id, coffeeScript)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mongodb-migrations.</span>url_builder</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mongodb-migrations.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator">module mongodb-migrations.Migrator</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.Migrator">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator
+            <span class="apidocSignatureSpan">(dbConfig, logFn)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype">module mongodb-migrations.Migrator.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._coll">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_coll
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._loadMigrationFiles">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_loadMigrationFiles
+            <span class="apidocSignatureSpan">(dir, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._run">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_run
+            <span class="apidocSignatureSpan">(direction, done, progress)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._runWhenReady">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_runWhenReady
+            <span class="apidocSignatureSpan">(direction, cb, progress)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.add">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>add
+            <span class="apidocSignatureSpan">(m)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.bulkAdd">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>bulkAdd
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.create">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>create
+            <span class="apidocSignatureSpan">(dir, id, done, coffeeScript)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.dispose">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>dispose
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.migrate">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>migrate
+            <span class="apidocSignatureSpan">(done, progress)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.rollback">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>rollback
+            <span class="apidocSignatureSpan">(done, progress)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.runFromDir">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>runFromDir
+            <span class="apidocSignatureSpan">(dir, done, progress)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype._coll">module mongodb-migrations.Migrator.prototype._coll</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._coll._coll">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_coll
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype._loadMigrationFiles">module mongodb-migrations.Migrator.prototype._loadMigrationFiles</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._loadMigrationFiles._loadMigrationFiles">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_loadMigrationFiles
+            <span class="apidocSignatureSpan">(dir, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype._run">module mongodb-migrations.Migrator.prototype._run</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._run._run">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_run
+            <span class="apidocSignatureSpan">(direction, done, progress)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype._runWhenReady">module mongodb-migrations.Migrator.prototype._runWhenReady</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype._runWhenReady._runWhenReady">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_runWhenReady
+            <span class="apidocSignatureSpan">(direction, cb, progress)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.add">module mongodb-migrations.Migrator.prototype.add</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.add.add">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>add
+            <span class="apidocSignatureSpan">(m)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.bulkAdd">module mongodb-migrations.Migrator.prototype.bulkAdd</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.bulkAdd.bulkAdd">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>bulkAdd
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.create">module mongodb-migrations.Migrator.prototype.create</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.create.create">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>create
+            <span class="apidocSignatureSpan">(dir, id, done, coffeeScript)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.dispose">module mongodb-migrations.Migrator.prototype.dispose</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.dispose.dispose">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>dispose
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.migrate">module mongodb-migrations.Migrator.prototype.migrate</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.migrate.migrate">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>migrate
+            <span class="apidocSignatureSpan">(done, progress)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.rollback">module mongodb-migrations.Migrator.prototype.rollback</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.rollback.rollback">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>rollback
+            <span class="apidocSignatureSpan">(done, progress)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.runFromDir">module mongodb-migrations.Migrator.prototype.runFromDir</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.Migrator.prototype.runFromDir.runFromDir">
+            function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>runFromDir
+            <span class="apidocSignatureSpan">(dir, done, progress)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.migration_stub">module mongodb-migrations.migration_stub</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.migration_stub.migration_stub">
+            function <span class="apidocSignatureSpan">mongodb-migrations.</span>migration_stub
+            <span class="apidocSignatureSpan">(id, coffeeScript)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.url_builder">module mongodb-migrations.url_builder</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.url_builder.buildMongoConnString">
+            function <span class="apidocSignatureSpan">mongodb-migrations.url_builder.</span>buildMongoConnString
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-migrations.utils">module mongodb-migrations.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.utils._buildOptions">
+            function <span class="apidocSignatureSpan">mongodb-migrations.utils.</span>_buildOptions
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.utils.connect">
+            function <span class="apidocSignatureSpan">mongodb-migrations.utils.</span>connect
+            <span class="apidocSignatureSpan">(config, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.utils.normalizeConfig">
+            function <span class="apidocSignatureSpan">mongodb-migrations.utils.</span>normalizeConfig
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-migrations.utils.repeatString">
+            function <span class="apidocSignatureSpan">mongodb-migrations.utils.</span>repeatString
+            <span class="apidocSignatureSpan">(str, n)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations" id="apidoc.module.mongodb-migrations">module mongodb-migrations</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator" id="apidoc.element.mongodb-migrations.Migrator">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator
+        <span class="apidocSignatureSpan">(dbConfig, logFn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Migrator(dbConfig, logFn) {
+  dbConfig = normalizeConfig(dbConfig);
+  this._isDisposed = false;
+  this._m = [];
+  this._result = {};
+  this._dbReady = new Promise.fromCallback(function(cb) {
+    return mongoConnect(dbConfig, cb);
+  }).then((function(_this) {
+    return function(db) {
+      return _this._db = db;
+    };
+  })(this));
+  this._collName = dbConfig.collection;
+  this._timeout = dbConfig.timeout;
+  if (logFn || logFn === null) {
+    this.log = logFn;
+  } else {
+    this.log = defaultLog;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+### Creating `Migrator` object
+
+Next, you have to create a `Migrator` object. The syntax is:
+
+```javascript
+var migrator = new mm.<span class="apidocCodeKeywordSpan">Migrator</span>(config, [customLogFn]);
+```
+
+Where `config` is an object with the keys defined in the
+[Configuration](#configuration) section (except of the `directory`
+which does not make sense in this scenario).
+
+#### Custom logging
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._coll" id="apidoc.element.mongodb-migrations.Migrator.prototype._coll">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype._coll
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Migrator.prototype._coll = function () {
+  return this._db.collection(this._collName);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._loadMigrationFiles" id="apidoc.element.mongodb-migrations.Migrator.prototype._loadMigrationFiles">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype._loadMigrationFiles
+        <span class="apidocSignatureSpan">(dir, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Migrator.prototype._loadMigrationFiles = function (dir, cb) {
+  return mkdirp(dir, 0x1fc, function(err) {
+    if (err) {
+      return cb(err);
+    }
+    return fs.readdir(dir, function(err, files) {
+      if (err) {
+        return cb(err);
+      }
+      files = files.filter(function(f) {
+        var ref1;
+        return ((ref1 = path.extname(f)) === &#x27;.js&#x27; || ref1 === &#x27;.coffee&#x27;) &#x26;&#x26; !f.startsWith(&#x27;.&#x27;);
+      }).map(function(f) {
+        var n, ref1;
+        n = (ref1 = f.match(/^(\d+)/)) != null ? ref1[1] : void 0;
+        if (n) {
+          n = parseInt(n, 10);
+        } else {
+          n = null;
+        }
+        return {
+          number: n,
+          name: f
+        };
+      }).filter(function(f) {
+        return !!f.name;
+      }).sort(function(f1, f2) {
+        return f1.number - f2.number;
+      }).map(function(f) {
+        var fileName;
+        fileName = path.join(dir, f.name);
+        if (fileName.match(/\.coffee$/)) {
+          require(&#x27;coffee-script/register&#x27;);
+        }
+        return {
+          number: f.number,
+          module: require(fileName)
+        };
+      });
+      return cb(null, files);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._run" id="apidoc.element.mongodb-migrations.Migrator.prototype._run">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype._run
+        <span class="apidocSignatureSpan">(direction, done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Migrator.prototype._run = function (direction, done, progress) {
+  var allDone, handleMigrationDone, i, l, log, logFn, m, migrationsCollection, migrationsCollectionUpdatePromises, runOne, systemLog
+, userLog;
+  if (direction === &#x27;down&#x27;) {
+    m = _(this._m).reverse().filter((function(_this) {
+      return function(m) {
+        var _r, ref1;
+        return (_r = (ref1 = _this._result[m.id]) != null ? ref1.status : void 0) &#x26;&#x26; _r !== &#x27;skip&#x27;;
+      };
+    })(this)).value();
+  } else {
+    direction = &#x27;up&#x27;;
+    this._result = {};
+    m = this._m;
+  }
+  this._lastDirection = direction;
+  logFn = this.log;
+  log = function(src) {
+    return function(msg) {
+      return typeof logFn === &#x22;function&#x22; ? logFn(src, msg) : void 0;
+    };
+  };
+  userLog = log(&#x27;user&#x27;);
+  systemLog = log(&#x27;system&#x27;);
+  i = 0;
+  l = m.length;
+  migrationsCollection = this._coll();
+  migrationsCollectionUpdatePromises = [];
+  handleMigrationDone = function(id) {
+    var p;
+    p = direction === &#x27;up&#x27; ? Promise.fromCallback(function(cb) {
+      return migrationsCollection.insert({
+        id: id
+      }, cb);
+    }) : Promise.fromCallback(function(cb) {
+      return migrationsCollection.deleteMany({
+        id: id
+      }, cb);
+    });
+    return migrationsCollectionUpdatePromises.push(p);
+  };
+  allDone = (function(_this) {
+    return function(err) {
+      return Promise.all(migrationsCollectionUpdatePromises).then(function() {
+        return done(err, _this._result);
+      });
+    };
+  })(this);
+  runOne = (function(_this) {
+    return function() {
+      var context, fn, id, isCallbackCalled, migration, migrationDone, skipCode, skipReason, timeoutId;
+      if (i &#x3e;= l) {
+        return allDone();
+      }
+      migration = m[i];
+      i += 1;
+      migrationDone = function(res) {
+        var msg, ref1;
+        _this._result[migration.id] = res;
+        _.defer(function() {
+          return typeof progress === &#x22;function&#x22; ? progress(migration.id, res) : void 0;
+        });
+        msg = &#x22;Migration &#x27;&#x22; + migration.id + &#x22;&#x27;: &#x22; + res.status;
+        if (res.status === &#x27;skip&#x27;) {
+          msg += &#x22; (&#x22; + res.reason + &#x22;)&#x22;;
+        }
+        systemLog(msg);
+        if (res.status === &#x27;error&#x27;) {
+          systemLog(&#x27;  &#x27; + res.error);
+        }
+        if (res.status === &#x27;ok&#x27; || (res.status === &#x27;skip&#x27; &#x26;&#x26; ((ref1 = res.code) === &#x27;no_up&#x27; || ref1 === &#x27;no_down&#x27;))) {
+          return handleMigrationDone(migration.id);
+        }
+      };
+      fn = migration[direction];
+      id = migration.id;
+      skipReason = null;
+      skipCode = null;
+      if (!fn) {
+        skipReason = &#x22;no migration function for direction &#x22; + direction;
+        skipCode = &#x22;no_&#x22; + direction;
+      }
+      if (direction === &#x27;up&#x27; &#x26;&#x26; id in _this._ranMigrations) {
+        skipReason = &#x22;migration already ran&#x22;;
+        skipCode = &#x27;already_ran&#x27;;
+      }
+      if (direction === &#x27;down&#x27; &#x26;&#x26; !(id in _this._result)) {
+        skipReason = &#x22;migration wasn&#x27;t in the recent `migrate` run&#x22;;
+        skipCode = &#x27;not_in_recent_migrate&#x27;;
+      }
+      if (skipReason) {
+        migrationDone({
+          status: &#x27;skip&#x27;,
+          reason: skipReason,
+          code: skipCode
+        });
+        return runOne();
+      }
+      isCallbackCalled = false;
+      if (_this._timeout) {
+        timeoutId = setTimeout(function() {
+          var err;
+          isCallbackCalled = true;
+          err = new Error(&#x22;migration timed-out&#x22;);
+          migrationDone({
+            status: &#x27;error&#x27;,
+            error: err
+          });
+          return allDone(err);
+        }, _this._timeout);
+      }
+      context = {
+        db: _this._db,
+        log: userLog
+      };
+      return fn.call(context, function(err) {
+        if (isCallbackCalled) {
+          return;
+        }
+        clearTimeout(timeoutId);
+        if (err) {
+          migrationDone({
+            status: &#x27;error&#x27;,
+            error: err
+          });
+          return allDone(err);
+        } else {
+          migrationDone({
+            status: &#x27;ok&#x27;
+          });
+          return runOne();
+        }
+      });
+    };
+  })(this);
+  return runOne();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._runWhenReady" id="apidoc.element.mongodb-migrations.Migrator.prototype._runWhenReady">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype._runWhenReady
+        <span class="apidocSignatureSpan">(direction, cb, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Migrator.prototype._runWhenReady = function (direction, cb, progress) {
+  var onError, onSuccess;
+  if (this._isDisposed) {
+    return cb(new Error(&#x27;This migrator is disposed and cannot be used anymore&#x27;));
+  }
+  onSuccess = (function(_this) {
+    return function() {
+      _this._ranMigrations = {};
+      return _this._coll().find().toArray(function(err, docs) {
+        var doc, j, len;
+        if (err) {
+          return cb(err);
+        }
+        for (j = 0, len = docs.length; j &#x3c; len; j++) {
+          doc = docs[j];
+          _this._ranMigrations[doc.id] = true;
+        }
+        return _this._run(direction, cb, progress);
+      });
+    };
+  })(this);
+  onError = function(err) {
+    return cb(err);
+  };
+  return this._dbReady.then(onSuccess, onError);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.add" id="apidoc.element.mongodb-migrations.Migrator.prototype.add">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.add
+        <span class="apidocSignatureSpan">(m)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Migrator.prototype.add = function (m) {
+  return this._m.push(m);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.bulkAdd" id="apidoc.element.mongodb-migrations.Migrator.prototype.bulkAdd">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.bulkAdd
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Migrator.prototype.bulkAdd = function (array) {
+  return this._m = this._m.concat(array);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.create" id="apidoc.element.mongodb-migrations.Migrator.prototype.create">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.create
+        <span class="apidocSignatureSpan">(dir, id, done, coffeeScript)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Migrator.prototype.create = function (dir, id, done, coffeeScript) {
+  if (coffeeScript == null) {
+    coffeeScript = false;
+  }
+  return this._loadMigrationFiles(dir, function(err, files) {
+    var body, ext, fileName, maxNum, nextNum, ref1, ref2, slug;
+    if (err) {
+      return done(err);
+    }
+    maxNum = (ref1 = (ref2 = _.maxBy(files, &#x27;number&#x27;)) != null ? ref2.number : void 0) != null ? ref1 : 0;
+    nextNum = maxNum + 1;
+    slug = (id || &#x27;&#x27;).toLowerCase().replace(/\s+/, &#x27;-&#x27;);
+    ext = coffeeScript ? &#x27;coffee&#x27; : &#x27;js&#x27;;
+    fileName = path.join(dir, nextNum + &#x22;-&#x22; + slug + &#x22;.&#x22; + ext);
+    body = migrationStub(id, coffeeScript);
+    return fs.writeFile(fileName, body, done);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.dispose" id="apidoc.element.mongodb-migrations.Migrator.prototype.dispose">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.dispose
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Migrator.prototype.dispose = function (cb) {
+  var onSuccess;
+  this._isDisposed = true;
+  onSuccess = (function(_this) {
+    return function() {
+      var e, error;
+      try {
+        _this._db.close();
+        return typeof cb === &#x22;function&#x22; ? cb(null) : void 0;
+      } catch (error) {
+        e = error;
+        return typeof cb === &#x22;function&#x22; ? cb(e) : void 0;
+      }
+    };
+  })(this);
+  return this._dbReady.then(onSuccess, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.migrate" id="apidoc.element.mongodb-migrations.Migrator.prototype.migrate">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.migrate
+        <span class="apidocSignatureSpan">(done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Migrator.prototype.migrate = function (done, progress) {
+  this._runWhenReady(&#x27;up&#x27;, done, progress);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.rollback" id="apidoc.element.mongodb-migrations.Migrator.prototype.rollback">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.rollback
+        <span class="apidocSignatureSpan">(done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Migrator.prototype.rollback = function (done, progress) {
+  if (this._lastDirection !== &#x27;up&#x27;) {
+    return done(new Error(&#x27;Rollback can only be ran after migrate&#x27;));
+  }
+  this._runWhenReady(&#x27;down&#x27;, done, progress);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.runFromDir" id="apidoc.element.mongodb-migrations.Migrator.prototype.runFromDir">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator.prototype.runFromDir
+        <span class="apidocSignatureSpan">(dir, done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Migrator.prototype.runFromDir = function (dir, done, progress) {
+  return this._loadMigrationFiles(dir, (function(_this) {
+    return function(err, files) {
+      if (err) {
+        return done(err);
+      }
+      _this.bulkAdd(_.map(files, &#x27;module&#x27;));
+      return _this.migrate(done, progress);
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.migration_stub" id="apidoc.element.mongodb-migrations.migration_stub">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>migration_stub
+        <span class="apidocSignatureSpan">(id, coffeeScript)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">migration_stub = function (id, coffeeScript) {
+  if (coffeeScript) {
+    return &#x22;module.exports.id = \&#x22;&#x22; + id + &#x22;\&#x22;\n\nmodule.exports.up = (done) -&#x3e;\n  # use @db for MongoDB communication, and @log
+() for logging\n  done()\n\nmodule.exports.down = (done) -&#x3e;\n  # use @db for MongoDB communication, and @log() for logging\n  done()&#x22;;
+  } else {
+    return &#x22;&#x27;use strict&#x27;;\n\nmodule.exports.id = \&#x22;&#x22; + id + &#x22;\&#x22;;\n\nmodule.exports.up = function (done) {\n  // use this.db for
+MongoDB communication, and this.log() for logging\n  done();\n};\n\nmodule.exports.down = function (done) {\n  // use this.db for MongoDB communication, and this.log() for logging\n  done();\n};&#x22;;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator" id="apidoc.module.mongodb-migrations.Migrator">module mongodb-migrations.Migrator</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.Migrator" id="apidoc.element.mongodb-migrations.Migrator.Migrator">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>Migrator
+        <span class="apidocSignatureSpan">(dbConfig, logFn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Migrator(dbConfig, logFn) {
+  dbConfig = normalizeConfig(dbConfig);
+  this._isDisposed = false;
+  this._m = [];
+  this._result = {};
+  this._dbReady = new Promise.fromCallback(function(cb) {
+    return mongoConnect(dbConfig, cb);
+  }).then((function(_this) {
+    return function(db) {
+      return _this._db = db;
+    };
+  })(this));
+  this._collName = dbConfig.collection;
+  this._timeout = dbConfig.timeout;
+  if (logFn || logFn === null) {
+    this.log = logFn;
+  } else {
+    this.log = defaultLog;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+### Creating `Migrator` object
+
+Next, you have to create a `Migrator` object. The syntax is:
+
+```javascript
+var migrator = new mm.<span class="apidocCodeKeywordSpan">Migrator</span>(config, [customLogFn]);
+```
+
+Where `config` is an object with the keys defined in the
+[Configuration](#configuration) section (except of the `directory`
+which does not make sense in this scenario).
+
+#### Custom logging
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype" id="apidoc.module.mongodb-migrations.Migrator.prototype">module mongodb-migrations.Migrator.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._coll" id="apidoc.element.mongodb-migrations.Migrator.prototype._coll">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_coll
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_coll = function () {
+  return this._db.collection(this._collName);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._loadMigrationFiles" id="apidoc.element.mongodb-migrations.Migrator.prototype._loadMigrationFiles">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_loadMigrationFiles
+        <span class="apidocSignatureSpan">(dir, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_loadMigrationFiles = function (dir, cb) {
+  return mkdirp(dir, 0x1fc, function(err) {
+    if (err) {
+      return cb(err);
+    }
+    return fs.readdir(dir, function(err, files) {
+      if (err) {
+        return cb(err);
+      }
+      files = files.filter(function(f) {
+        var ref1;
+        return ((ref1 = path.extname(f)) === &#x27;.js&#x27; || ref1 === &#x27;.coffee&#x27;) &#x26;&#x26; !f.startsWith(&#x27;.&#x27;);
+      }).map(function(f) {
+        var n, ref1;
+        n = (ref1 = f.match(/^(\d+)/)) != null ? ref1[1] : void 0;
+        if (n) {
+          n = parseInt(n, 10);
+        } else {
+          n = null;
+        }
+        return {
+          number: n,
+          name: f
+        };
+      }).filter(function(f) {
+        return !!f.name;
+      }).sort(function(f1, f2) {
+        return f1.number - f2.number;
+      }).map(function(f) {
+        var fileName;
+        fileName = path.join(dir, f.name);
+        if (fileName.match(/\.coffee$/)) {
+          require(&#x27;coffee-script/register&#x27;);
+        }
+        return {
+          number: f.number,
+          module: require(fileName)
+        };
+      });
+      return cb(null, files);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._run" id="apidoc.element.mongodb-migrations.Migrator.prototype._run">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_run
+        <span class="apidocSignatureSpan">(direction, done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_run = function (direction, done, progress) {
+  var allDone, handleMigrationDone, i, l, log, logFn, m, migrationsCollection, migrationsCollectionUpdatePromises, runOne, systemLog
+, userLog;
+  if (direction === &#x27;down&#x27;) {
+    m = _(this._m).reverse().filter((function(_this) {
+      return function(m) {
+        var _r, ref1;
+        return (_r = (ref1 = _this._result[m.id]) != null ? ref1.status : void 0) &#x26;&#x26; _r !== &#x27;skip&#x27;;
+      };
+    })(this)).value();
+  } else {
+    direction = &#x27;up&#x27;;
+    this._result = {};
+    m = this._m;
+  }
+  this._lastDirection = direction;
+  logFn = this.log;
+  log = function(src) {
+    return function(msg) {
+      return typeof logFn === &#x22;function&#x22; ? logFn(src, msg) : void 0;
+    };
+  };
+  userLog = log(&#x27;user&#x27;);
+  systemLog = log(&#x27;system&#x27;);
+  i = 0;
+  l = m.length;
+  migrationsCollection = this._coll();
+  migrationsCollectionUpdatePromises = [];
+  handleMigrationDone = function(id) {
+    var p;
+    p = direction === &#x27;up&#x27; ? Promise.fromCallback(function(cb) {
+      return migrationsCollection.insert({
+        id: id
+      }, cb);
+    }) : Promise.fromCallback(function(cb) {
+      return migrationsCollection.deleteMany({
+        id: id
+      }, cb);
+    });
+    return migrationsCollectionUpdatePromises.push(p);
+  };
+  allDone = (function(_this) {
+    return function(err) {
+      return Promise.all(migrationsCollectionUpdatePromises).then(function() {
+        return done(err, _this._result);
+      });
+    };
+  })(this);
+  runOne = (function(_this) {
+    return function() {
+      var context, fn, id, isCallbackCalled, migration, migrationDone, skipCode, skipReason, timeoutId;
+      if (i &#x3e;= l) {
+        return allDone();
+      }
+      migration = m[i];
+      i += 1;
+      migrationDone = function(res) {
+        var msg, ref1;
+        _this._result[migration.id] = res;
+        _.defer(function() {
+          return typeof progress === &#x22;function&#x22; ? progress(migration.id, res) : void 0;
+        });
+        msg = &#x22;Migration &#x27;&#x22; + migration.id + &#x22;&#x27;: &#x22; + res.status;
+        if (res.status === &#x27;skip&#x27;) {
+          msg += &#x22; (&#x22; + res.reason + &#x22;)&#x22;;
+        }
+        systemLog(msg);
+        if (res.status === &#x27;error&#x27;) {
+          systemLog(&#x27;  &#x27; + res.error);
+        }
+        if (res.status === &#x27;ok&#x27; || (res.status === &#x27;skip&#x27; &#x26;&#x26; ((ref1 = res.code) === &#x27;no_up&#x27; || ref1 === &#x27;no_down&#x27;))) {
+          return handleMigrationDone(migration.id);
+        }
+      };
+      fn = migration[direction];
+      id = migration.id;
+      skipReason = null;
+      skipCode = null;
+      if (!fn) {
+        skipReason = &#x22;no migration function for direction &#x22; + direction;
+        skipCode = &#x22;no_&#x22; + direction;
+      }
+      if (direction === &#x27;up&#x27; &#x26;&#x26; id in _this._ranMigrations) {
+        skipReason = &#x22;migration already ran&#x22;;
+        skipCode = &#x27;already_ran&#x27;;
+      }
+      if (direction === &#x27;down&#x27; &#x26;&#x26; !(id in _this._result)) {
+        skipReason = &#x22;migration wasn&#x27;t in the recent `migrate` run&#x22;;
+        skipCode = &#x27;not_in_recent_migrate&#x27;;
+      }
+      if (skipReason) {
+        migrationDone({
+          status: &#x27;skip&#x27;,
+          reason: skipReason,
+          code: skipCode
+        });
+        return runOne();
+      }
+      isCallbackCalled = false;
+      if (_this._timeout) {
+        timeoutId = setTimeout(function() {
+          var err;
+          isCallbackCalled = true;
+          err = new Error(&#x22;migration timed-out&#x22;);
+          migrationDone({
+            status: &#x27;error&#x27;,
+            error: err
+          });
+          return allDone(err);
+        }, _this._timeout);
+      }
+      context = {
+        db: _this._db,
+        log: userLog
+      };
+      return fn.call(context, function(err) {
+        if (isCallbackCalled) {
+          return;
+        }
+        clearTimeout(timeoutId);
+        if (err) {
+          migrationDone({
+            status: &#x27;error&#x27;,
+            error: err
+          });
+          return allDone(err);
+        } else {
+          migrationDone({
+            status: &#x27;ok&#x27;
+          });
+          return runOne();
+        }
+      });
+    };
+  })(this);
+  return runOne();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._runWhenReady" id="apidoc.element.mongodb-migrations.Migrator.prototype._runWhenReady">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_runWhenReady
+        <span class="apidocSignatureSpan">(direction, cb, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_runWhenReady = function (direction, cb, progress) {
+  var onError, onSuccess;
+  if (this._isDisposed) {
+    return cb(new Error(&#x27;This migrator is disposed and cannot be used anymore&#x27;));
+  }
+  onSuccess = (function(_this) {
+    return function() {
+      _this._ranMigrations = {};
+      return _this._coll().find().toArray(function(err, docs) {
+        var doc, j, len;
+        if (err) {
+          return cb(err);
+        }
+        for (j = 0, len = docs.length; j &#x3c; len; j++) {
+          doc = docs[j];
+          _this._ranMigrations[doc.id] = true;
+        }
+        return _this._run(direction, cb, progress);
+      });
+    };
+  })(this);
+  onError = function(err) {
+    return cb(err);
+  };
+  return this._dbReady.then(onSuccess, onError);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.add" id="apidoc.element.mongodb-migrations.Migrator.prototype.add">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>add
+        <span class="apidocSignatureSpan">(m)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (m) {
+  return this._m.push(m);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+definitions to it.
+
+#### `migrator.add`
+
+To add a single migration, call
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">add</span>(migrationDef),
+```
+
+where `migrationDef` is an object with `id`, `up` _[optional]_,
+and `down` _[optional]_ keys, all having the same meaning
+as described in [Creating Migrations](#creating-migrations).
+
+#### `migrator.bulkAdd`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.bulkAdd" id="apidoc.element.mongodb-migrations.Migrator.prototype.bulkAdd">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>bulkAdd
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">bulkAdd = function (array) {
+  return this._m = this._m.concat(array);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+as described in [Creating Migrations](#creating-migrations).
+
+#### `migrator.bulkAdd`
+
+To add multiple migrations at once, call
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">bulkAdd</span>(migrationDefsArray),
+```
+
+where `migrationDefsArray` is an array of objects explained in
+[migrator.add](#migratoradd).
+
+### `migrator.migrate`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.create" id="apidoc.element.mongodb-migrations.Migrator.prototype.create">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>create
+        <span class="apidocSignatureSpan">(dir, id, done, coffeeScript)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (dir, id, done, coffeeScript) {
+  if (coffeeScript == null) {
+    coffeeScript = false;
+  }
+  return this._loadMigrationFiles(dir, function(err, files) {
+    var body, ext, fileName, maxNum, nextNum, ref1, ref2, slug;
+    if (err) {
+      return done(err);
+    }
+    maxNum = (ref1 = (ref2 = _.maxBy(files, &#x27;number&#x27;)) != null ? ref2.number : void 0) != null ? ref1 : 0;
+    nextNum = maxNum + 1;
+    slug = (id || &#x27;&#x27;).toLowerCase().replace(/\s+/, &#x27;-&#x27;);
+    ext = coffeeScript ? &#x27;coffee&#x27; : &#x27;js&#x27;;
+    fileName = path.join(dir, nextNum + &#x22;-&#x22; + slug + &#x22;.&#x22; + ext);
+    body = migrationStub(id, coffeeScript);
+    return fs.writeFile(fileName, body, done);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+It&#x27;s true even for the migrations that _do not_ have the `down` part.
+
+### `migrator.create`
+
+To programmatically create a migration stub file, call
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">create</span>(directory, id, doneFn, coffeeScript=false),
+```
+
+where `directory` is the directory to save the file to,
+`id` is migration&#x27;s ID, `doneFn` is a callback that gets
+passed the error object in case of error,
+and optional `coffeeScript` flag tells the library to create the stub
+in CoffeeScript instead of plain JavaScript.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.dispose" id="apidoc.element.mongodb-migrations.Migrator.prototype.dispose">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>dispose
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dispose = function (cb) {
+  var onSuccess;
+  this._isDisposed = true;
+  onSuccess = (function(_this) {
+    return function() {
+      var e, error;
+      try {
+        _this._db.close();
+        return typeof cb === &#x22;function&#x22; ? cb(null) : void 0;
+      } catch (error) {
+        e = error;
+        return typeof cb === &#x22;function&#x22; ? cb(e) : void 0;
+      }
+    };
+  })(this);
+  return this._dbReady.then(onSuccess, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+and sets the ID inside of the generated file.
+
+### `migrator.dispose`
+
+When you are done with the migrator you should call
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">dispose</span>(cb)
+```
+
+to release the MongoDB connections pool. Once disposed the migrator cannot be used anymore.
+
+The `cb` is a Node-style callback:
+
+```javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.migrate" id="apidoc.element.mongodb-migrations.Migrator.prototype.migrate">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>migrate
+        <span class="apidocSignatureSpan">(done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">migrate = function (done, progress) {
+  this._runWhenReady(&#x27;up&#x27;, done, progress);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+[migrator.add](#migratoradd).
+
+### `migrator.migrate`
+
+Once you have one or more migrations added, run them with calling
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">migrate</span>(doneFn, [progressFn]).
+```
+
+Migrations are ran in order they were added to the `migrator`.
+
+The `doneFn` is called once all migrations are ran or once one of them
+fails. The function has the signature
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.rollback" id="apidoc.element.mongodb-migrations.Migrator.prototype.rollback">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>rollback
+        <span class="apidocSignatureSpan">(done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rollback = function (done, progress) {
+  if (this._lastDirection !== &#x27;up&#x27;) {
+    return done(new Error(&#x27;Rollback can only be ran after migrate&#x27;));
+  }
+  this._runWhenReady(&#x27;down&#x27;, done, progress);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+If you decide that current migration run was unsuccessful,
+you can roll back all recently ran transactions. Currently this
+operation is only supported through programatic interface.
+
+Do so by calling
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">rollback</span>()
+```
+
+This runs all the migrations added to the `migrator`
+in the reverse order, and follows these rules:
+
+1. migrations without the `down` method are skipped (but see the note below),
+1. migrations not ran recently (potentially those
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.runFromDir" id="apidoc.element.mongodb-migrations.Migrator.prototype.runFromDir">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>runFromDir
+        <span class="apidocSignatureSpan">(dir, done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runFromDir = function (dir, done, progress) {
+  return this._loadMigrationFiles(dir, (function(_this) {
+    return function(err, files) {
+      if (err) {
+        return done(err);
+      }
+      _this.bulkAdd(_.map(files, &#x27;module&#x27;));
+      return _this.migrate(done, progress);
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+1. if the migration file has `.coffee` extension, the
+`coffee-script &#x3e;= 1.7.0` package must be importable
+from the current directory.
+
+To run the migrations from the `directory` call
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">runFromDir</span>(directory, doneFn, [progressFn])
+```
+
+The `doneFn` and `progressFn` have the same meaning as in
+[migrator.migrate](#migratormigrate).
+
+
+### `migrator.rollback`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype._coll" id="apidoc.module.mongodb-migrations.Migrator.prototype._coll">module mongodb-migrations.Migrator.prototype._coll</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._coll._coll" id="apidoc.element.mongodb-migrations.Migrator.prototype._coll._coll">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_coll
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_coll = function () {
+  return this._db.collection(this._collName);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype._loadMigrationFiles" id="apidoc.module.mongodb-migrations.Migrator.prototype._loadMigrationFiles">module mongodb-migrations.Migrator.prototype._loadMigrationFiles</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._loadMigrationFiles._loadMigrationFiles" id="apidoc.element.mongodb-migrations.Migrator.prototype._loadMigrationFiles._loadMigrationFiles">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_loadMigrationFiles
+        <span class="apidocSignatureSpan">(dir, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_loadMigrationFiles = function (dir, cb) {
+  return mkdirp(dir, 0x1fc, function(err) {
+    if (err) {
+      return cb(err);
+    }
+    return fs.readdir(dir, function(err, files) {
+      if (err) {
+        return cb(err);
+      }
+      files = files.filter(function(f) {
+        var ref1;
+        return ((ref1 = path.extname(f)) === &#x27;.js&#x27; || ref1 === &#x27;.coffee&#x27;) &#x26;&#x26; !f.startsWith(&#x27;.&#x27;);
+      }).map(function(f) {
+        var n, ref1;
+        n = (ref1 = f.match(/^(\d+)/)) != null ? ref1[1] : void 0;
+        if (n) {
+          n = parseInt(n, 10);
+        } else {
+          n = null;
+        }
+        return {
+          number: n,
+          name: f
+        };
+      }).filter(function(f) {
+        return !!f.name;
+      }).sort(function(f1, f2) {
+        return f1.number - f2.number;
+      }).map(function(f) {
+        var fileName;
+        fileName = path.join(dir, f.name);
+        if (fileName.match(/\.coffee$/)) {
+          require(&#x27;coffee-script/register&#x27;);
+        }
+        return {
+          number: f.number,
+          module: require(fileName)
+        };
+      });
+      return cb(null, files);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype._run" id="apidoc.module.mongodb-migrations.Migrator.prototype._run">module mongodb-migrations.Migrator.prototype._run</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._run._run" id="apidoc.element.mongodb-migrations.Migrator.prototype._run._run">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_run
+        <span class="apidocSignatureSpan">(direction, done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_run = function (direction, done, progress) {
+  var allDone, handleMigrationDone, i, l, log, logFn, m, migrationsCollection, migrationsCollectionUpdatePromises, runOne, systemLog
+, userLog;
+  if (direction === &#x27;down&#x27;) {
+    m = _(this._m).reverse().filter((function(_this) {
+      return function(m) {
+        var _r, ref1;
+        return (_r = (ref1 = _this._result[m.id]) != null ? ref1.status : void 0) &#x26;&#x26; _r !== &#x27;skip&#x27;;
+      };
+    })(this)).value();
+  } else {
+    direction = &#x27;up&#x27;;
+    this._result = {};
+    m = this._m;
+  }
+  this._lastDirection = direction;
+  logFn = this.log;
+  log = function(src) {
+    return function(msg) {
+      return typeof logFn === &#x22;function&#x22; ? logFn(src, msg) : void 0;
+    };
+  };
+  userLog = log(&#x27;user&#x27;);
+  systemLog = log(&#x27;system&#x27;);
+  i = 0;
+  l = m.length;
+  migrationsCollection = this._coll();
+  migrationsCollectionUpdatePromises = [];
+  handleMigrationDone = function(id) {
+    var p;
+    p = direction === &#x27;up&#x27; ? Promise.fromCallback(function(cb) {
+      return migrationsCollection.insert({
+        id: id
+      }, cb);
+    }) : Promise.fromCallback(function(cb) {
+      return migrationsCollection.deleteMany({
+        id: id
+      }, cb);
+    });
+    return migrationsCollectionUpdatePromises.push(p);
+  };
+  allDone = (function(_this) {
+    return function(err) {
+      return Promise.all(migrationsCollectionUpdatePromises).then(function() {
+        return done(err, _this._result);
+      });
+    };
+  })(this);
+  runOne = (function(_this) {
+    return function() {
+      var context, fn, id, isCallbackCalled, migration, migrationDone, skipCode, skipReason, timeoutId;
+      if (i &#x3e;= l) {
+        return allDone();
+      }
+      migration = m[i];
+      i += 1;
+      migrationDone = function(res) {
+        var msg, ref1;
+        _this._result[migration.id] = res;
+        _.defer(function() {
+          return typeof progress === &#x22;function&#x22; ? progress(migration.id, res) : void 0;
+        });
+        msg = &#x22;Migration &#x27;&#x22; + migration.id + &#x22;&#x27;: &#x22; + res.status;
+        if (res.status === &#x27;skip&#x27;) {
+          msg += &#x22; (&#x22; + res.reason + &#x22;)&#x22;;
+        }
+        systemLog(msg);
+        if (res.status === &#x27;error&#x27;) {
+          systemLog(&#x27;  &#x27; + res.error);
+        }
+        if (res.status === &#x27;ok&#x27; || (res.status === &#x27;skip&#x27; &#x26;&#x26; ((ref1 = res.code) === &#x27;no_up&#x27; || ref1 === &#x27;no_down&#x27;))) {
+          return handleMigrationDone(migration.id);
+        }
+      };
+      fn = migration[direction];
+      id = migration.id;
+      skipReason = null;
+      skipCode = null;
+      if (!fn) {
+        skipReason = &#x22;no migration function for direction &#x22; + direction;
+        skipCode = &#x22;no_&#x22; + direction;
+      }
+      if (direction === &#x27;up&#x27; &#x26;&#x26; id in _this._ranMigrations) {
+        skipReason = &#x22;migration already ran&#x22;;
+        skipCode = &#x27;already_ran&#x27;;
+      }
+      if (direction === &#x27;down&#x27; &#x26;&#x26; !(id in _this._result)) {
+        skipReason = &#x22;migration wasn&#x27;t in the recent `migrate` run&#x22;;
+        skipCode = &#x27;not_in_recent_migrate&#x27;;
+      }
+      if (skipReason) {
+        migrationDone({
+          status: &#x27;skip&#x27;,
+          reason: skipReason,
+          code: skipCode
+        });
+        return runOne();
+      }
+      isCallbackCalled = false;
+      if (_this._timeout) {
+        timeoutId = setTimeout(function() {
+          var err;
+          isCallbackCalled = true;
+          err = new Error(&#x22;migration timed-out&#x22;);
+          migrationDone({
+            status: &#x27;error&#x27;,
+            error: err
+          });
+          return allDone(err);
+        }, _this._timeout);
+      }
+      context = {
+        db: _this._db,
+        log: userLog
+      };
+      return fn.call(context, function(err) {
+        if (isCallbackCalled) {
+          return;
+        }
+        clearTimeout(timeoutId);
+        if (err) {
+          migrationDone({
+            status: &#x27;error&#x27;,
+            error: err
+          });
+          return allDone(err);
+        } else {
+          migrationDone({
+            status: &#x27;ok&#x27;
+          });
+          return runOne();
+        }
+      });
+    };
+  })(this);
+  return runOne();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype._runWhenReady" id="apidoc.module.mongodb-migrations.Migrator.prototype._runWhenReady">module mongodb-migrations.Migrator.prototype._runWhenReady</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype._runWhenReady._runWhenReady" id="apidoc.element.mongodb-migrations.Migrator.prototype._runWhenReady._runWhenReady">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>_runWhenReady
+        <span class="apidocSignatureSpan">(direction, cb, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_runWhenReady = function (direction, cb, progress) {
+  var onError, onSuccess;
+  if (this._isDisposed) {
+    return cb(new Error(&#x27;This migrator is disposed and cannot be used anymore&#x27;));
+  }
+  onSuccess = (function(_this) {
+    return function() {
+      _this._ranMigrations = {};
+      return _this._coll().find().toArray(function(err, docs) {
+        var doc, j, len;
+        if (err) {
+          return cb(err);
+        }
+        for (j = 0, len = docs.length; j &#x3c; len; j++) {
+          doc = docs[j];
+          _this._ranMigrations[doc.id] = true;
+        }
+        return _this._run(direction, cb, progress);
+      });
+    };
+  })(this);
+  onError = function(err) {
+    return cb(err);
+  };
+  return this._dbReady.then(onSuccess, onError);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.add" id="apidoc.module.mongodb-migrations.Migrator.prototype.add">module mongodb-migrations.Migrator.prototype.add</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.add.add" id="apidoc.element.mongodb-migrations.Migrator.prototype.add.add">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>add
+        <span class="apidocSignatureSpan">(m)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (m) {
+  return this._m.push(m);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+definitions to it.
+
+#### `migrator.add`
+
+To add a single migration, call
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">add</span>(migrationDef),
+```
+
+where `migrationDef` is an object with `id`, `up` _[optional]_,
+and `down` _[optional]_ keys, all having the same meaning
+as described in [Creating Migrations](#creating-migrations).
+
+#### `migrator.bulkAdd`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.bulkAdd" id="apidoc.module.mongodb-migrations.Migrator.prototype.bulkAdd">module mongodb-migrations.Migrator.prototype.bulkAdd</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.bulkAdd.bulkAdd" id="apidoc.element.mongodb-migrations.Migrator.prototype.bulkAdd.bulkAdd">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>bulkAdd
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">bulkAdd = function (array) {
+  return this._m = this._m.concat(array);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+as described in [Creating Migrations](#creating-migrations).
+
+#### `migrator.bulkAdd`
+
+To add multiple migrations at once, call
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">bulkAdd</span>(migrationDefsArray),
+```
+
+where `migrationDefsArray` is an array of objects explained in
+[migrator.add](#migratoradd).
+
+### `migrator.migrate`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.create" id="apidoc.module.mongodb-migrations.Migrator.prototype.create">module mongodb-migrations.Migrator.prototype.create</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.create.create" id="apidoc.element.mongodb-migrations.Migrator.prototype.create.create">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>create
+        <span class="apidocSignatureSpan">(dir, id, done, coffeeScript)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (dir, id, done, coffeeScript) {
+  if (coffeeScript == null) {
+    coffeeScript = false;
+  }
+  return this._loadMigrationFiles(dir, function(err, files) {
+    var body, ext, fileName, maxNum, nextNum, ref1, ref2, slug;
+    if (err) {
+      return done(err);
+    }
+    maxNum = (ref1 = (ref2 = _.maxBy(files, &#x27;number&#x27;)) != null ? ref2.number : void 0) != null ? ref1 : 0;
+    nextNum = maxNum + 1;
+    slug = (id || &#x27;&#x27;).toLowerCase().replace(/\s+/, &#x27;-&#x27;);
+    ext = coffeeScript ? &#x27;coffee&#x27; : &#x27;js&#x27;;
+    fileName = path.join(dir, nextNum + &#x22;-&#x22; + slug + &#x22;.&#x22; + ext);
+    body = migrationStub(id, coffeeScript);
+    return fs.writeFile(fileName, body, done);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+It&#x27;s true even for the migrations that _do not_ have the `down` part.
+
+### `migrator.create`
+
+To programmatically create a migration stub file, call
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">create</span>(directory, id, doneFn, coffeeScript=false),
+```
+
+where `directory` is the directory to save the file to,
+`id` is migration&#x27;s ID, `doneFn` is a callback that gets
+passed the error object in case of error,
+and optional `coffeeScript` flag tells the library to create the stub
+in CoffeeScript instead of plain JavaScript.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.dispose" id="apidoc.module.mongodb-migrations.Migrator.prototype.dispose">module mongodb-migrations.Migrator.prototype.dispose</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.dispose.dispose" id="apidoc.element.mongodb-migrations.Migrator.prototype.dispose.dispose">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>dispose
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dispose = function (cb) {
+  var onSuccess;
+  this._isDisposed = true;
+  onSuccess = (function(_this) {
+    return function() {
+      var e, error;
+      try {
+        _this._db.close();
+        return typeof cb === &#x22;function&#x22; ? cb(null) : void 0;
+      } catch (error) {
+        e = error;
+        return typeof cb === &#x22;function&#x22; ? cb(e) : void 0;
+      }
+    };
+  })(this);
+  return this._dbReady.then(onSuccess, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+and sets the ID inside of the generated file.
+
+### `migrator.dispose`
+
+When you are done with the migrator you should call
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">dispose</span>(cb)
+```
+
+to release the MongoDB connections pool. Once disposed the migrator cannot be used anymore.
+
+The `cb` is a Node-style callback:
+
+```javascript
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.migrate" id="apidoc.module.mongodb-migrations.Migrator.prototype.migrate">module mongodb-migrations.Migrator.prototype.migrate</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.migrate.migrate" id="apidoc.element.mongodb-migrations.Migrator.prototype.migrate.migrate">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>migrate
+        <span class="apidocSignatureSpan">(done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">migrate = function (done, progress) {
+  this._runWhenReady(&#x27;up&#x27;, done, progress);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+[migrator.add](#migratoradd).
+
+### `migrator.migrate`
+
+Once you have one or more migrations added, run them with calling
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">migrate</span>(doneFn, [progressFn]).
+```
+
+Migrations are ran in order they were added to the `migrator`.
+
+The `doneFn` is called once all migrations are ran or once one of them
+fails. The function has the signature
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.rollback" id="apidoc.module.mongodb-migrations.Migrator.prototype.rollback">module mongodb-migrations.Migrator.prototype.rollback</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.rollback.rollback" id="apidoc.element.mongodb-migrations.Migrator.prototype.rollback.rollback">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>rollback
+        <span class="apidocSignatureSpan">(done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rollback = function (done, progress) {
+  if (this._lastDirection !== &#x27;up&#x27;) {
+    return done(new Error(&#x27;Rollback can only be ran after migrate&#x27;));
+  }
+  this._runWhenReady(&#x27;down&#x27;, done, progress);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+If you decide that current migration run was unsuccessful,
+you can roll back all recently ran transactions. Currently this
+operation is only supported through programatic interface.
+
+Do so by calling
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">rollback</span>()
+```
+
+This runs all the migrations added to the `migrator`
+in the reverse order, and follows these rules:
+
+1. migrations without the `down` method are skipped (but see the note below),
+1. migrations not ran recently (potentially those
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.Migrator.prototype.runFromDir" id="apidoc.module.mongodb-migrations.Migrator.prototype.runFromDir">module mongodb-migrations.Migrator.prototype.runFromDir</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.Migrator.prototype.runFromDir.runFromDir" id="apidoc.element.mongodb-migrations.Migrator.prototype.runFromDir.runFromDir">
+        function <span class="apidocSignatureSpan">mongodb-migrations.Migrator.prototype.</span>runFromDir
+        <span class="apidocSignatureSpan">(dir, done, progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runFromDir = function (dir, done, progress) {
+  return this._loadMigrationFiles(dir, (function(_this) {
+    return function(err, files) {
+      if (err) {
+        return done(err);
+      }
+      _this.bulkAdd(_.map(files, &#x27;module&#x27;));
+      return _this.migrate(done, progress);
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+1. if the migration file has `.coffee` extension, the
+`coffee-script &#x3e;= 1.7.0` package must be importable
+from the current directory.
+
+To run the migrations from the `directory` call
+
+```javascript
+migrator.<span class="apidocCodeKeywordSpan">runFromDir</span>(directory, doneFn, [progressFn])
+```
+
+The `doneFn` and `progressFn` have the same meaning as in
+[migrator.migrate](#migratormigrate).
+
+
+### `migrator.rollback`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.migration_stub" id="apidoc.module.mongodb-migrations.migration_stub">module mongodb-migrations.migration_stub</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.migration_stub.migration_stub" id="apidoc.element.mongodb-migrations.migration_stub.migration_stub">
+        function <span class="apidocSignatureSpan">mongodb-migrations.</span>migration_stub
+        <span class="apidocSignatureSpan">(id, coffeeScript)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">migration_stub = function (id, coffeeScript) {
+  if (coffeeScript) {
+    return &#x22;module.exports.id = \&#x22;&#x22; + id + &#x22;\&#x22;\n\nmodule.exports.up = (done) -&#x3e;\n  # use @db for MongoDB communication, and @log
+() for logging\n  done()\n\nmodule.exports.down = (done) -&#x3e;\n  # use @db for MongoDB communication, and @log() for logging\n  done()&#x22;;
+  } else {
+    return &#x22;&#x27;use strict&#x27;;\n\nmodule.exports.id = \&#x22;&#x22; + id + &#x22;\&#x22;;\n\nmodule.exports.up = function (done) {\n  // use this.db for
+MongoDB communication, and this.log() for logging\n  done();\n};\n\nmodule.exports.down = function (done) {\n  // use this.db for MongoDB communication, and this.log() for logging\n  done();\n};&#x22;;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.url_builder" id="apidoc.module.mongodb-migrations.url_builder">module mongodb-migrations.url_builder</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.url_builder.buildMongoConnString" id="apidoc.element.mongodb-migrations.url_builder.buildMongoConnString">
+        function <span class="apidocSignatureSpan">mongodb-migrations.url_builder.</span>buildMongoConnString
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buildMongoConnString = function (config) {
+  var hasUser, params, replicaset, s;
+  if (config.url) {
+    return config.url;
+  }
+  hasUser = !!config.user;
+  replicaset = config.replicaset;
+  s = &#x22;mongodb://&#x22;;
+  if (hasUser) {
+    s += config.user;
+  }
+  if (config.password) {
+    if (!hasUser) {
+      throw new Error(&#x27;`password` provided but `user` is not&#x27;);
+    }
+    s += &#x27;:&#x27; + config.password;
+  }
+  if (hasUser) {
+    s += &#x27;@&#x27;;
+  }
+  if (replicaset) {
+    s += replicaset.members.map(buildHost).join(&#x27;,&#x27;);
+  } else {
+    s += buildHost(config);
+  }
+  s += &#x27;/&#x27;;
+  if (config.db) {
+    s += config.db;
+  }
+  params = [];
+  if (replicaset) {
+    params.push(&#x22;replicaSet=&#x22; + replicaset.name);
+  }
+  if (config.ssl) {
+    params.push(&#x27;ssl=true&#x27;);
+  }
+  if (config.authDatabase) {
+    params.push(&#x22;authSource=&#x22; + config.authDatabase);
+  }
+  if (params.length &#x3e; 0) {
+    s += &#x27;?&#x27; + params.join(&#x27;&#x26;&#x27;);
+  }
+  return s;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  validateConnSettings(config);
+  return config;
+};
+
+exports.connect = function(config, cb) {
+  var options, url;
+  options = _buildOptions(config);
+  url = urlBuilder.<span class="apidocCodeKeywordSpan">buildMongoConnString</span>(config);
+  return MongoClient.connect(url, options, cb);
+};
+
+exports.repeatString = function(str, n) {
+  return Array(n + 1).join(str);
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-migrations.utils" id="apidoc.module.mongodb-migrations.utils">module mongodb-migrations.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.utils._buildOptions" id="apidoc.element.mongodb-migrations.utils._buildOptions">
+        function <span class="apidocSignatureSpan">mongodb-migrations.utils.</span>_buildOptions
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_buildOptions = function (config) {
+  var options, poolSize;
+  options = config.options || {};
+  poolSize = config.poolSize;
+  if (poolSize != null) {
+    console.warn(&#x27;The `poolSize` config param is deprecated.\nUse `options: { server: { poolSize: poolSize} }` instead.&#x27;);
+    if (_.get(options, &#x27;server.poolSize&#x27;)) {
+      console.warn(&#x27;The `poolSize` is overriding the `options: { server: { poolSize: poolSize} }` value.&#x27;);
+    }
+    _.set(options, &#x27;server.poolSize&#x27;, poolSize);
+  }
+  if (!_.get(options, &#x27;server.poolSize&#x27;)) {
+    _.set(options, &#x27;server.poolSize&#x27;, DEFAULT_POOL_SIZE);
+  }
+  return options;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.utils.connect" id="apidoc.element.mongodb-migrations.utils.connect">
+        function <span class="apidocSignatureSpan">mongodb-migrations.utils.</span>connect
+        <span class="apidocSignatureSpan">(config, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function (config, cb) {
+  var options, url;
+  options = _buildOptions(config);
+  url = urlBuilder.buildMongoConnString(config);
+  return MongoClient.connect(url, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return config;
+  };
+
+  exports.connect = function(config, cb) {
+    var options, url;
+    options = _buildOptions(config);
+    url = urlBuilder.buildMongoConnString(config);
+    return MongoClient.<span class="apidocCodeKeywordSpan">connect</span>(url, options, cb);
+  };
+
+  exports.repeatString = function(str, n) {
+    return Array(n + 1).join(str);
+  };
+
+}).call(this);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.utils.normalizeConfig" id="apidoc.element.mongodb-migrations.utils.normalizeConfig">
+        function <span class="apidocSignatureSpan">mongodb-migrations.utils.</span>normalizeConfig
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalizeConfig = function (config) {
+  if (!(_.isObject(config) &#x26;&#x26; !_.isArray(config))) {
+    throw new Error(&#x27;`config` is not provided or is not an object&#x27;);
+  }
+  _.defaults(config, {
+    collection: DEFAULT_COLLECTION
+  });
+  validateConnSettings(config);
+  return config;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-migrations.utils.repeatString" id="apidoc.element.mongodb-migrations.utils.repeatString">
+        function <span class="apidocSignatureSpan">mongodb-migrations.utils.</span>repeatString
+        <span class="apidocSignatureSpan">(str, n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">repeatString = function (str, n) {
+  return Array(n + 1).join(str);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
