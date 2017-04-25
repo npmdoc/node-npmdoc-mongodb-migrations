@@ -1,4 +1,7 @@
-# api documentation for  [mongodb-migrations (v0.8.5)](https://github.com/emirotin/mongodb-migrations)  [![npm package](https://img.shields.io/npm/v/npmdoc-mongodb-migrations.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mongodb-migrations) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mongodb-migrations.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mongodb-migrations)
+# npmdoc-mongodb-migrations
+
+#### basic api documentation for  [mongodb-migrations (v0.8.5)](https://github.com/emirotin/mongodb-migrations)  [![npm package](https://img.shields.io/npm/v/npmdoc-mongodb-migrations.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mongodb-migrations) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mongodb-migrations.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mongodb-migrations)
+
 #### A migration framework for MongoDB
 
 [![NPM](https://nodei.co/npm/mongodb-migrations.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/mongodb-migrations)
